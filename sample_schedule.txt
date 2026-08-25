@@ -1,0 +1,9 @@
+LE EECS 3000 Cr=3.00 M Term:W Professional Practice in Computing - Keele
+   SC PHYS 1412 Cr=3.00 M Term:W Physics Fundamentals 2 - Keele
+   LE EECS 2031 Cr=3.00 A Term:F Software Tools - Keele
+   LE EECS 3101 Cr=3.00 N Term:W Design and Analysis of Algorithms - Keele
+   LE EECS 3401 Cr=3.00 A Term:F Introduction to AI and Logic Programming - Keele
+   AP SOSC 2007 Cr=6.00 A Term:Y Representing Climate Change - Keele
+   LE EECS 3421 Cr=3.00 M Term:W Introduction to Database Systems - Keele
+   LE EECS 3311 Cr=3.00 A Term:F Software Design - Keele
+   SC MATH 1090 Cr=3.00 B Term:F Intro. to Logic for Computer Science - Keele
