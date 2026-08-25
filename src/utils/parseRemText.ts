@@ -14,3 +14,37 @@ interface Meeting {
   duration: number; // i.e. 110 min, 170 min, 80 min, etc.
   room: string; // i.e. LSB 103, LAS 1006, RN 120, etc.
 }
+
+export function parseRemText(rawText: string): Course[] {
+  // course array to loop and parse text
+  const courseArray: Course[] = [];
+  // variable for if this new line is a course?
+  let currentCourse: Course | null = null;
+  // variable for if this new line is a meeting?
+  let currentMeetingCat: string | null = null;
+  // variable for if this new line is a continuation time of meeting? i.e. lecs, labs, tuts
+  // let continuationLine: Meeting | null = null;
+  
+
+  try {
+    // 1. Split the text into lines, handling both Windows (\r\n) and UNIX (\n) line endings
+    const lines: string[] = rawText.split(/\r?\n/);
+
+    // 2. Loop through each line using a for...of loop
+    for (const line of lines) {
+      // detect what type of new line this is, 3 options...
+      if (line.includes("Cr=")) {
+      console.log("Course Header Found");
+      }
+      else if(!line.includes("Cr=") && line.includes("-")) {
+        console.log("Meeting Header Found");
+      }
+      else {
+        console.log("Continuation Line Found");
+      }
+  } catch (error) {
+    console.error("Error reading or parsing the file:", error);
+  }
+
+  return courseArray;
+}
