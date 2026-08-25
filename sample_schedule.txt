@@ -1,9 +1,20 @@
-LE EECS 3000 Cr=3.00 M Term:W Professional Practice in Computing - Keele
-   SC PHYS 1412 Cr=3.00 M Term:W Physics Fundamentals 2 - Keele
-   LE EECS 2031 Cr=3.00 A Term:F Software Tools - Keele
-   LE EECS 3101 Cr=3.00 N Term:W Design and Analysis of Algorithms - Keele
-   LE EECS 3401 Cr=3.00 A Term:F Introduction to AI and Logic Programming - Keele
-   AP SOSC 2007 Cr=6.00 A Term:Y Representing Climate Change - Keele
-   LE EECS 3421 Cr=3.00 M Term:W Introduction to Database Systems - Keele
-   LE EECS 3311 Cr=3.00 A Term:F Software Design - Keele
-   SC MATH 1090 Cr=3.00 B Term:F Intro. to Logic for Computer Science - Keele
+Fall - LE EECS 2031 Cr=3.00 A	Lecture-01	MON 19:00	110 min	LSB 103
+Laboratory-01	WED 19:00	110 min	LAS 1006
+Fall - LE EECS 3311 Cr=3.00 A	Lecture-01	TUE 8:30	80 min	LSB 106
+THU 8:30	80 min	LSB 106
+Laboratory-02	WED 8:30	80 min	LAS 1006
+Fall - LE EECS 3401 Cr=3.00 A	Lecture-01	THU 14:30	80 min	LSB 106
+TUE 14:30	80 min	LSB 106
+Fall - SC MATH 1090 Cr=3.00 B	Lecture-01	TUE 11:30	80 min	LAS B
+THU 11:30	80 min	LAS B
+Fall/Winter - AP SOSC 2007 Cr=6.00 A	Seminar-01	TUE 11:30	170 min	VH 3009
+Winter - LE EECS 3000 Cr=3.00 M	Lecture-01	TUE 17:30	170 min	R N120
+Winter - LE EECS 3101 Cr=3.00 N	Lecture-01	MON 11:30	80 min	ACW 203
+WED 11:30	80 min	ACW 203
+Tutorial-01	FRI 15:00	80 min	SCS 104
+Winter - LE EECS 3421 Cr=3.00 M	Lecture-01	MON 8:30	80 min	R S137
+WED 8:30	80 min	R S137
+Winter - SC PHYS 1412 Cr=3.00 M	Lecture-01	TUE 13:00	80 min	VH A
+THU 13:00	80 min	VH A
+Tutorial-01	MON 10:30	50 min	CLH L
+Laboratory-10	THU 15:00	170 min	BC 102D
