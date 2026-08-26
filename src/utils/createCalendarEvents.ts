@@ -5,15 +5,19 @@ interface CalendarEvent {
   duration: number;
   location: string;
   term: string;
+  startDate: Date;
+  endDate: Date;
 }
 
 export function createCalendarEvents(courses: Course[]) {
   // array events to return after function ends
   const events: CalendarEvent[] = []
-
+  const termDates = getTermDates(course.term);
   // loop through each course and its meetings
   for (const course of courses) {
     for (const meeting of course.meetings) {
+      // get term date range depending on course term
+      
       // create the calendar event
       const event: CalendarEvent = {
         title: `${course.courseCode} ${meeting.category}`,
@@ -22,6 +26,8 @@ export function createCalendarEvents(courses: Course[]) {
         duration: meeting.duration,
         location: meeting.room,
         term: course.term
+        startDate: termDates.startDate,
+        endDate: termDates.endDate
       };
       // push this created event to our events array
       events.push(event);
