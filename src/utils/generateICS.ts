@@ -59,3 +59,25 @@ export function generateICS(events: CalendarEvent[]): string {
   // return Calendar Text
   return value;
 }
+
+export function downloadICS(calendarData: string) {
+  const blob = new Blob(
+    [calendarData],
+    { type: "text/calendar;charset=utf-8" }
+  );
+
+  const url = URL.createObjectURL(blob);
+
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = "schedule.ics";
+
+  document.body.appendChild(link);
+
+  link.click();
+
+  document.body.removeChild(link);
+
+  URL.revokeObjectURL(url);
+}
