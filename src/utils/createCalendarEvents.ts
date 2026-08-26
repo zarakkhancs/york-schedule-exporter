@@ -8,13 +8,13 @@ interface CalendarEvent {
 }
 
 export function createCalendarEvents(courses: Course[]) {
-
+  // array events to return after function ends
   const events: CalendarEvent[] = []
 
+  // loop through each course and its meetings
   for (const course of courses) {
-
     for (const meeting of course.meetings) {
-
+      // create the calendar event
       const event: CalendarEvent = {
         title: `${course.courseCode} ${meeting.category}`,
         day: meeting.day,
@@ -23,7 +23,7 @@ export function createCalendarEvents(courses: Course[]) {
         location: meeting.room,
         term: course.term
       };
-
+      // push this created event to our events array
       events.push(event);
     }
   }
@@ -31,11 +31,6 @@ export function createCalendarEvents(courses: Course[]) {
 }
 
 export function generateICS(events: CalendarEvent[])
-{
-
-}
-
-export function getTermDates(term: string)
 {
 
 }
