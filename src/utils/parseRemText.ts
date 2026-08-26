@@ -22,9 +22,8 @@ export function parseRemText(rawText: string): Course[] {
   let currentCourse: Course | null = null;
   // variable for if this new line is a meeting?
   let currentMeetingCat: string | null = null;
-  // variable for if this new line is a continuation time of meeting? i.e. lecs, labs, tuts
-  // let continuationLine: Meeting | null = null;
-  
+  // variable for new line section?
+  let currentMeetingSection: string | null = null;
 
   try {
     // 1. Split the text into lines, handling both Windows (\r\n) and UNIX (\n) line endings
@@ -57,11 +56,60 @@ export function parseRemText(rawText: string): Course[] {
       
         courseArray.push(currentCourse);
       }
-      else if(!line.includes("Cr=") && line.includes("-")) {
-        console.log("Meeting Header Found");
+      else if (!line.includes("Cr=") && line.includes("-")) {
+
+        const tokens = line.trim().split(/\s+/);
+      
+        const [category, category_section] = tokens[0].split("-");
+      
+        const day = tokens[1];
+      
+        const time = tokens[2];
+      
+        const duration = parseInt(tokens[3]);
+      
+        const room = `${tokens[5]} ${tokens[6]}`;
+      
+        currentMeetingCat = category;
+        currentMettingSection = category_section;
+      
+        const meeting: Meeting = {
+          category,
+          category_section,
+          day,
+          time,
+          duration,
+          room
+        };
+      
+        if (currentCourse) {
+          currentCourse.meetings.push(meeting);
+        }
       }
       else {
-        console.log("Continuation Line Found");
+        const tokens = line.trim().split(/\s+/);
+      
+        const day = tokens[0];
+      
+        const time = tokens[1];
+      
+        const duration = parseInt(tokens[2]);
+      
+        const room = `${tokens[4]} ${tokens[5]}`;
+      
+        const meeting: Meeting = {
+          category: currentMeetingCat || "",
+          category_section: currentMeetingSection || "",
+          day,
+          time,
+          duration,
+          room
+        };
+      
+        if (currentCourse) {
+          currentCourse.meetings.push(meeting);
+        }
+      }
       }
   } catch (error) {
     console.error("Error reading or parsing the file:", error);
