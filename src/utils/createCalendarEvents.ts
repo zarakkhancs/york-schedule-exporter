@@ -13,9 +13,14 @@ interface CalendarEvent {
 export function createCalendarEvents(courses: Course[]) {
   // array events to return after function ends
   const events: CalendarEvent[] = []
-  const termDates = getTermDates(course.term);
   // loop through each course and its meetings
   for (const course of courses) {
+    const termDates = getTermDates(course.term);
+    const firstOccurrence =
+      getFirstOccurrence(
+        meeting.day,
+        termDates.startDate
+      );
     for (const meeting of course.meetings) {
       // get term date range depending on course term
       
@@ -26,9 +31,10 @@ export function createCalendarEvents(courses: Course[]) {
         startTime: meeting.time,
         duration: meeting.duration,
         location: meeting.room,
-        term: course.term
+        term: course.term,
         startDate: termDates.startDate,
-        endDate: termDates.endDate
+        endDate: termDates.endDate,
+        firstOccurrence: firstOccurrence
       };
       // push this created event to our events array
       events.push(event);
