@@ -1,3 +1,44 @@
-export function generateICS(events: CalendarEvent[]) {
+import { createEvents } from "ics";
 
+export function generateICS(events: CalendarEvent[]) {
+  const icsEvents: any[] = [];
+  for (const event of events) {
+    // for each event convert time time, i.e 11:30 = 11 hour and 30 minute
+    // we put it in an array format using split and map and convert string to Number
+    const [hour, minute] =
+      event.startTime
+        .split(":")
+        .map(Number);
+    // now utlize helper function getFirstOccurence to find 
+    // first day this event starts and build ICS event
+    const firstDate = event.firstOccurrence;
+    icsEvents.push({
+    title: event.title,
+  
+    location: event.location,
+  
+    start: [
+      firstDate.getFullYear(),
+      // since JavaScript months are 0-11
+      // whereas ICS expects 1-12
+      firstDate.getMonth() + 1,
+      firstDate.getDate(),
+      hour,
+      minute
+    ],
+  
+    duration: {
+      minutes: event.duration
+    }
+  });
+  }
+  // loop is over now we generate the calendar
+  const { error, value } =
+  createEvents(icsEvents);
+  // error handling
+  if (error) {
+    throw error;
+  }
+  // return Calendar Text
+  return value;
 }
