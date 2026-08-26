@@ -29,3 +29,13 @@ export function createCalendarEvents(courses: Course[]) {
   }
   return events;
 }
+
+export function generateICS(events: CalendarEvent[])
+{
+
+}
+
+export function getTermDates(term: string)
+{
+
+}
