@@ -1,6 +1,8 @@
 import { createEvents } from "ics";
+import { getRecurrenceDay } from "./getRecurrenceDay";
 
-export function generateICS(events: CalendarEvent[]) {
+export function generateICS(events: CalendarEvent[]): string {
+  // TODO: Replace any[] with proper ICS event type
   const icsEvents: any[] = [];
   for (const event of events) {
     // for each event convert time time, i.e 11:30 = 11 hour and 30 minute
@@ -13,6 +15,13 @@ export function generateICS(events: CalendarEvent[]) {
     // set reccurrence day using helper
     const recurrenceDay =
     getRecurrenceDay(event.day);
+
+    // set until date for reccurrence
+    const untilDate =
+      event.endDate
+        .toISOString()
+        .replace(/[-:]/g, "")
+        .split(".")[0] + "Z";
     
     // now utlize helper function getFirstOccurence to find 
     // first day this event starts and build ICS event
@@ -34,7 +43,10 @@ export function generateICS(events: CalendarEvent[]) {
   
     duration: {
       minutes: event.duration
-    }
+    },
+
+    recurrenceRule:
+      `FREQ=WEEKLY;BYDAY=${recurrenceDay};UNTIL=${untilDate}`
   });
   }
   // loop is over now we generate the calendar
