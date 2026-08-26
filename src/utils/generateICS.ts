@@ -9,6 +9,11 @@ export function generateICS(events: CalendarEvent[]) {
       event.startTime
         .split(":")
         .map(Number);
+
+    // set reccurrence day using helper
+    const recurrenceDay =
+    getRecurrenceDay(event.day);
+    
     // now utlize helper function getFirstOccurence to find 
     // first day this event starts and build ICS event
     const firstDate = event.firstOccurrence;
