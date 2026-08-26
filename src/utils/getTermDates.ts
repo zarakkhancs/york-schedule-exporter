@@ -1,5 +1,10 @@
-import term from "./parseRemText.ts";
+export interface TermDates 
+{
+startDate: Date;
+endDate: Date;
+}
 
-export function getTermDates(term: string) {
+export function getTermDates(term: string) 
+{
     
 }
