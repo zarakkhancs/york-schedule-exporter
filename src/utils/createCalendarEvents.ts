@@ -7,6 +7,7 @@ interface CalendarEvent {
   term: string;
   startDate: Date;
   endDate: Date;
+  firstOccurrence: Date;
 }
 
 export function createCalendarEvents(courses: Course[]) {
