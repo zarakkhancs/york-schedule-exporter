@@ -68,10 +68,10 @@ export function parseRemText(rawText: string): Course[] {
       
         const duration = parseInt(tokens[3]);
       
-        const room = `${tokens[5]} ${tokens[6]}`;
+        const room = tokens.slice(5).join(" ");
       
         currentMeetingCat = category;
-        currentMettingSection = category_section;
+        currentMeetingSection = category_section;
       
         const meeting: Meeting = {
           category,
@@ -95,7 +95,7 @@ export function parseRemText(rawText: string): Course[] {
       
         const duration = parseInt(tokens[2]);
       
-        const room = `${tokens[4]} ${tokens[5]}`;
+        const room = tokens.slice(4).join(" ");
       
         const meeting: Meeting = {
           category: currentMeetingCat || "",
