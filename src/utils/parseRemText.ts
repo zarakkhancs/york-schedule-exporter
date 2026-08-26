@@ -33,8 +33,29 @@ export function parseRemText(rawText: string): Course[] {
     // 2. Loop through each line using a for...of loop
     for (const line of lines) {
       // detect what type of new line this is, 3 options...
+      // A. this line is a course header
       if (line.includes("Cr=")) {
-      console.log("Course Header Found");
+        const parts = line.trim().split(/\s+/);
+      
+        const term = parts[0];
+      
+        const courseCode = `${parts[2]} ${parts[3]} ${parts[4]}`;
+      
+        const credits = parseFloat(
+          parts[5].replace("Cr=", "")
+        );
+      
+        const section = parts[6];
+      
+        currentCourse = {
+          term,
+          courseCode,
+          credits,
+          section,
+          meetings: []
+        };
+      
+        courseArray.push(currentCourse);
       }
       else if(!line.includes("Cr=") && line.includes("-")) {
         console.log("Meeting Header Found");
@@ -45,6 +66,8 @@ export function parseRemText(rawText: string): Course[] {
   } catch (error) {
     console.error("Error reading or parsing the file:", error);
   }
+
+  // console.log(courseArray.length);
 
   return courseArray;
 }
