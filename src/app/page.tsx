@@ -39,7 +39,7 @@ export default function Home() {
         <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
           <h2 className="text-xl font-bold mb-4">How to use this tool:</h2>
           <ol className="list-decimal list-inside space-y-2 text-gray-700 mb-6">
-            <li>Log in to <a href="https://registrar.yorku.ca/enrol/visiting/enrolment" target="_blank" className="text-blue-600 hover:underline font-medium">York REM</a>.</li>
+            <li>Log in to <a href="https.sis.yorku.ca/Apps/WebObjects/REM.woa/wa/DirectAction/rem" target="_blank" className="text-blue-600 hover:underline font-medium">York REM</a>.</li>
             <li>Select your academic session and click <strong>Continue</strong>.</li>
             <li>Click on <strong>Course Details</strong>.</li>
             <li>Highlight and copy <strong>only</strong> your course list (see image below).</li>
