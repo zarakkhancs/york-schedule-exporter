@@ -26,8 +26,11 @@ export function parseRemText(rawText: string): Course[] {
   let currentMeetingSection: string | null = null;
 
   try {
-    // 1. Split the text into lines, handling both Windows (\r\n) and UNIX (\n) line endings
-    const lines: string[] = rawText.split(/\r?\n/);
+    // 1. Split the text into lines, trim whitespace, and filter out empty lines
+    const lines: string[] = rawText
+      .split(/\r?\n/)
+      .map((line) => line.trim())
+      .filter((line) => line.length > 0);
 
     // 2. Loop through each line using a for...of loop
     for (const line of lines) {
