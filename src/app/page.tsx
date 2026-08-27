@@ -44,9 +44,15 @@ export default function Home() {
             <li>Click on <strong>Course Details</strong>.</li>
             <li>Highlight and copy <strong>only</strong> your course list (see image below).</li>
             <li>Paste the text into the box and click Generate.</li>
+            
             {/* quick tip for opening the file */}
             <div className="mt-4 p-3 bg-red-50 border border-red-100 rounded-lg text-xs text-red-800">
               <strong>Tip:</strong> Once downloaded, simply open or double-click the <code>.ics</code> file to import it straight into your calendar app.
+            </div>
+
+            {/* iphone / apple import troubleshooting tip */}
+            <div className="mt-2 p-3 bg-gray-100 border border-gray-200 rounded-lg text-xs text-gray-700">
+              <span className="font-semibold text-gray-900">🍎 Apple / iPhone User?</span> If it doesn&apos;t open automatically, you can drag and drop the file into your Calendar app. Check out this <a href="https://www.youtube.com/watch?v=xEaamiZDWuo" target="_blank" className="text-blue-600 hover:underline font-medium">quick video guide</a> for help.
             </div>
           </ol>
           
