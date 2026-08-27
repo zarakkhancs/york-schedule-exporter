@@ -24,7 +24,7 @@ Check out the live application here: [york-schedule-exporter.vercel.app](http://
 4. Highlight and copy **only** your course list.
 5. Paste the text into the web app box and click **Generate Calendar (.ics)**.
 
-### 📱 Apple / iPhone Import Tip
+### 🍎 Apple / iPhone Import Tip
 If tapping the downloaded file doesn't automatically open it in Apple Calendar:
 1. Open your **Files** app.
 2. Open your **Calendar** app side-by-side using split-screen or app switcher.
