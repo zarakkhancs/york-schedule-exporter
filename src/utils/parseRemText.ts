@@ -37,13 +37,8 @@ export function parseRemText(rawText: string): Course[] {
         const parts = line.trim().split(/\s+/);
       
         const term = parts[0];
-      
         const courseCode = `${parts[2]} ${parts[3]} ${parts[4]}`;
-      
-        const credits = parseFloat(
-          parts[5].replace("Cr=", "")
-        );
-      
+        const credits = parseFloat(parts[5].replace("Cr=", ""));
         const section = parts[6];
       
         currentCourse = {
@@ -55,6 +50,27 @@ export function parseRemText(rawText: string): Course[] {
         };
       
         courseArray.push(currentCourse);
+
+        // FIX: Check if a meeting is attached to the same line
+        if (parts.length > 7) {
+          const [category, category_section] = parts[7].split("-");
+          const day = parts[8];
+          const time = parts[9];
+          const duration = parseInt(parts[10]);
+          const room = parts.slice(12).join(" "); // skip "min" at index 11
+          
+          currentMeetingCat = category;
+          currentMeetingSection = category_section;
+          
+          currentCourse.meetings.push({
+            category,
+            category_section,
+            day,
+            time,
+            duration,
+            room
+          });
+        }
       }
       else if (!line.includes("Cr=") && line.includes("-")) {
 
