@@ -5,7 +5,7 @@ A fast, lightweight, and user-friendly web utility that instantly converts York 
 Compatible with Google Calendar, Apple Calendar, Microsoft Outlook, and more.
 
 ## 🚀 Live Demo
-Check out the live application here: [https://your-vercel-url.vercel.app](http://york-schedule-exporter.vercel.app/)]
+Check out the live application here: [https://your-vercel-url.vercel.app(http://york-schedule-exporter.vercel.app/)]
 ---
 
 ## ✨ Features
