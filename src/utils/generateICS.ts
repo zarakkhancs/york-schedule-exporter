@@ -1,9 +1,10 @@
-import { createEvents } from "ics";
+import { createEvents, EventAttributes } from "ics";
 import { getRecurrenceDay } from "./getRecurrenceDay";
+import { CalendarEvent } from "./createCalendarEvents";
 
-export function generateICS(events: CalendarEvent[]): string {
-  // TODO: Replace any[] with proper ICS event type
-  const icsEvents: any[] = [];
+export function generateICS(events: CalendarEvent[]): string | null {
+  // FIXED: Replace any[] with proper ICS event type
+  const icsEvents: EventAttributes[] = [];
   for (const event of events) {
     // for each event convert time time, i.e 11:30 = 11 hour and 30 minute
     // we put it in an array format using split and map and convert string to Number
@@ -57,7 +58,7 @@ export function generateICS(events: CalendarEvent[]): string {
     throw error;
   }
   // return Calendar Text
-  return value;
+  return value || null;
 }
 
 export function downloadICS(calendarData: string) {

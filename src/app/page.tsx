@@ -21,16 +21,10 @@ export default function Home() {
   };
 
   return (
-    <main
-      style={{
-        maxWidth: "900px",
-        margin: "0 auto",
-        padding: "2rem"
-      }}
-    >
-      <h1>York Schedule Exporter</h1>
+    <main className="max-w-4xl mx-auto p-8 font-sans text-gray-900">
+      <h1 className="text-3xl font-bold mb-2">York Schedule Exporter</h1>
 
-      <p>
+      <p className="text-gray-600 mb-6">
         Copy your schedule from York REM and paste it below.
       </p>
 
@@ -38,23 +32,12 @@ export default function Home() {
         value={rawText}
         onChange={(e) => setRawText(e.target.value)}
         placeholder="Paste REM schedule here..."
-        style={{
-          width: "100%",
-          height: "400px",
-          padding: "1rem",
-          fontSize: "1rem",
-          resize: "vertical"
-        }}
+        className="w-full h-[400px] p-4 text-base resize-y border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
       />
 
       <button
         onClick={handleGenerate}
-        style={{
-          marginTop: "1rem",
-          padding: "1rem 2rem",
-          fontSize: "1rem",
-          cursor: "pointer"
-        }}
+        className="mt-6 px-8 py-3 text-base font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 transition-colors cursor-pointer"
       >
         Generate Calendar
       </button>

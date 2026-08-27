@@ -1,4 +1,4 @@
-interface Course {
+export interface Course {
   term: string; // i.e. Fall, Winter, Fall/Winter, etc.
   courseCode: string; // i.e. LE EECS 2031, SC MATH 1090, AP SOSC 2007, etc.
   credits: number; // i.e. 3.00, 6.00, 4.00, etc.
@@ -6,7 +6,7 @@ interface Course {
   meetings: Meeting[]; // stores Meeting objects for Course defined below
 }
 
-interface Meeting {
+export interface Meeting {
   category: string; // i.e. Lecture, Laboratory, Seminar, etc.
   category_section: string; // i.e. 01, 02, 10, etc.
   day: string; // i.e. MON, WED, THU, etc.

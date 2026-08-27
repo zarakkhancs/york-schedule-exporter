@@ -1,4 +1,8 @@
-interface CalendarEvent {
+import { getFirstOccurrence } from "./getFirstOccurrence";
+import { getTermDates } from "./getTermDates";
+import { Course } from "./parseRemText";
+
+export interface CalendarEvent {
   title: string;
   day: string;
   startTime: string;
@@ -15,15 +19,15 @@ export function createCalendarEvents(courses: Course[]) {
   const events: CalendarEvent[] = []
   // loop through each course and its meetings
   for (const course of courses) {
+    // get term date for each course
     const termDates = getTermDates(course.term);
-    const firstOccurrence =
-      getFirstOccurrence(
+      
+    for (const meeting of course.meetings) {
+      // Calculate the first occurrence specifically for THIS meeting's day
+      const firstOccurrence = getFirstOccurrence(
         meeting.day,
         termDates.startDate
       );
-    for (const meeting of course.meetings) {
-      // get term date range depending on course term
-      
       // create the calendar event
       const event: CalendarEvent = {
         title: `${course.courseCode} ${meeting.category}`,
