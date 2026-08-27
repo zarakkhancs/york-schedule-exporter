@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { generateCalendar } from "@/utils/generateCalendar";
-import { track } from "@vercel/analytics";
 
 export default function Home() {
   // create react state and store what user pastes
@@ -15,9 +14,6 @@ export default function Home() {
       alert("Please paste your REM schedule.");
       return;
     }
-    // adding track event here
-    // putting here makes sure we only track successful download
-    track("Downloaded Schedule");
     // otherwise call generateCalendar
     generateCalendar(rawText);
   };
